@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Main{% endblock %}
+{% block content %}
+
+
+
+{% for z in product %}
+<div class="card m-3" style="width: 18rem;">
+  <img src="{{z.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><a href="{% url 'more' id=z.id %}">{{z.tittle}}</a></h5>
+    <p class="card-text">{{z.description}}</p>
+    <h5 class="card-title">{{z.price}} $</h5>
+    <a href="{% url 'addCart' pk=z.id %}" class="btn btn-primary">Add to cart</a>
+  </div>   
+</div>
+{% endfor %}
+
+
+
+{% for y in brand %}
+<div style="display:flex; gap: 10px;">
+    {% for i in  card %}
+  {% if i.Category == y %}
+<div class="card" style="width: 18rem;">
+    <img src="{{i.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title"><a href="{% url 'more' id=i.id %}">{{i.tittle}}</a></h3>
+      <p class="card-text">{{i.description}}</p>
+      <h6 class="card-title">{{i.price}} $</h6>
+      <a href="{% url 'addCart' pk=i.id %}" class="btn btn-primary">Addcart</a>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+
+{% endfor %}
+{% endblock %}

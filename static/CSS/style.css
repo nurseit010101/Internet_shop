@@ -1,0 +1,48 @@
+body{
+    margin: 0 auto;
+}
+.box1{
+    display: flex;
+    justify-content: space-between
+}
+.box8{
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+
+}
+.box5{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 200px;
+    height: 150px;
+    background-color: cadetblue;
+    position: fixed;
+    margin-left: 850px;
+    top: 100px;
+    
+}
+.navbar{
+    position: relative;
+    right: 90px;
+    z-index: 1;
+}
+
+.container-fluid{
+    top: 0px;
+    position: absolute;
+    position: fixed;
+    height: 80px;
+    background-color: black;
+    display: flex;
+
+}
+.card{
+    margin-top: 60px;
+}
+
+
+
+
+

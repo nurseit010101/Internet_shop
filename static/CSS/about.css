@@ -1,0 +1,63 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  
+  .section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    margin-top: 150px;
+  }
+  
+  .item {
+    border: 5px solid black;
+    padding: 50px 40px;
+    background-color: #ffffff;
+    margin: 5px;
+    margin-bottom: 1.25rem; /* ändra detta */
+    width: 270px;
+    padding: 30px;
+    border-radius: 0.5rem;
+    position: relative;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0px 10px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .item .title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    color: #0e224a;
+    margin-top: 1rem;
+  }
+  
+  .item .text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    padding: 5px;
+    margin-top: 10px;
+  }
+  
+  .item .icon {
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-x: visible;
+  }
+  
+  .item .icon .vector {
+    width: 2.5rem;
+    position: relative;
+    top: 1.25rem;
+  }
+  

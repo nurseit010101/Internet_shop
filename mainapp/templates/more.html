@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Main{% endblock %}
+{% block content %}
+
+
+
+<div class="card" style="width: 18rem;">
+    <img src="{{more.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title"><a href="{">{{more.tittle}}</a></h3>
+      <p class="card-text">{{more.description}}</p>
+      <h6 class="card-title">{{more.price}} $</h6>
+      <a href="#" class="btn btn-primary">addCart</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

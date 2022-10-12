@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}Main{% endblock %}
+{% block content %}
+
+
+<!-- <div style="display:flex;"  class="image">
+    <img width="600px" height="600px" src="https://media2.fenom.com/81369-product_large/xadidas-superstar-andre-saraiva.jpg.pagespeed.ic.5NWNGkvTa2.jpg" class="img-thumbnail" alt="...">
+    <h2 style="display:flex; text-align: center; margin-left: 100px; margin-top: 50px;">Adidas Superstar Andre Saraiva</h2>
+</div > -->
+<div class="container">
+  {% for more in products_cart %}
+  <div class="box1">
+    <div class="box8">
+      <div class="kart">
+        <img width="300px" height="300px" src="{{more.image.url}}" class="img" alt="...">
+      </div>
+      <div class="kart1">
+        <h3 class="kart2 "><a href="#">{{more.tittle}}</a></h3>
+        <p style="color: red ;" class="kart">PRICE: {{more.price}} $</p>
+
+        <a href="{% url 'removeCart' id=more.id %}" class="btn btn-primary">Removecart</a>
+
+      </div>
+      {% endfor%}
+    </div>
+    <div class="box5">
+      <div class="box">
+        <h3>Total</h3>
+        <p style="color: green; " class="kart">Sub-total: {{all_products_sum}} $</p>
+        <h5>Count</h5>
+        {{count_of_product}}
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="row mt-4 d-flex align-items-center">
+  <div class="col-sm-6 order-md-2 text-right">
+    <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Оформить заказ
+    </a>
+  </div>
+  {% if messages %}
+  {% for i in messages %}
+  <div class="alert alert-{{i.extra_tags}} d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+      <use xlink:href="#check-circle-fill" />
+    </svg>
+    <div>
+      {{i}}
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{% url 'order' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Имя:</label>
+              <input type="text" class="form-control" id="recipient-name" name="c_name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Фамилия:</label>
+              <input type="text" class="form-control" id="recipient-name" name="c_lastname">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Ваш номер:</label>
+              <input type="text" class="form-control" id="recipient-name" name="c_number">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Адрес:</label>
+              <input type="text" class="form-control" id="recipient-name" name="c_addres">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Сообщение:</label>
+              <textarea class="form-control" id="message-text" name="c_message"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Отправить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {% endblock %}
